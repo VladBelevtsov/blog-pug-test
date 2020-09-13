@@ -1,0 +1,49 @@
+extends layout/main
+
+block variables
+  - var pageTitle = 'Pug - Page of blog'
+  - var youAreUsingPug = true
+  - var trandItem = [{img: './assets/img/001.png', title: 'First title', link: "#", desc: 'description for first item'},{img: './assets/img/002.png', title: 'Secont title', link: "#", desc: 'description for second item'},{img: './assets/img/003.png', title: 'First title', link: "#", desc: 'description for first item'},{img: './assets/img/004.png', title: 'Secont title', link: "#", desc: 'description for second item'}]
+  - var recentItem = [{img: 'https://images.unsplash.com/photo-1463946494630-d7d39d1ff445?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80', title: 'Title of Post', link: "#", desc: 'description for post item'},{img: 'https://images.unsplash.com/photo-1561595945-3710d94e3806?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80', title: 'Title of post', link: "#", desc: 'description for post item'},{img: 'https://images.unsplash.com/photo-1562010565-8256eb6b1a5a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80', title: 'Title of post', link: "#", desc: 'description for post item'},{img: 'https://images.unsplash.com/photo-1512554895674-21616256b349?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80', title: 'Title of post', link: "#", desc: 'description for post item'},{img: 'https://images.unsplash.com/photo-1536846531139-5e98a8e8a6dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80', title: 'Title of post', link: "#", desc: 'description for post item'},{img: 'https://images.unsplash.com/photo-1537790101899-8dd2f6fe5c13?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80', title: 'Title of post', link: "#", desc: 'description for post item'},{img: 'https://images.unsplash.com/photo-1537350322973-c554f725abf7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80', title: 'Title of post', link: "#", desc: 'description for post item'}]
+
+block content
+  .hero
+    .hero__wrapp
+      .hero__wrapp-browsing Now browsing:
+        span Greenland
+      h1.hero__wrapp-title
+        |  Find place you love. Start
+        br
+        | travel today!
+      .hero__wrapp-trending-head
+        h3 Trending Posts
+        a(href="#") See All
+      .hero__wrapp-trending
+        for i in trandItem
+          .hero__wrapp-trending-card
+            .hero__wrapp-trending-card-wrapp
+              .hero__wrapp-trending-card-wrapp-img
+                img(src=i.img, alt=i.title)
+              .hero__wrapp-trending-card-wrapp-title
+                a(href=i.link)=i.title
+              .hero__wrapp-trending-card-wrapp-desc
+                p= i.desc
+              .hero__wrapp-trending-card-wrapp-like
+                include ./assets/icons/heart.svg
+      .hero__wrapp-recent-head
+        h3 Recent Posts
+      .hero__wrapp-recent
+        for i in recentItem
+          .hero__wrapp-recent-card
+            .hero__wrapp-recent-card-wrapp
+              .hero__wrapp-recent-card-wrapp-img
+                img(src=i.img, alt=i.title)
+              .hero__wrapp-recent-card-wrapp-title
+                a(href=i.link)=i.title
+              .hero__wrapp-recent-card-wrapp-desc
+                p= i.desc
+              .hero__wrapp-recent-card-wrapp-like
+                include ./assets/icons/heart.svg
+          
+        
+
